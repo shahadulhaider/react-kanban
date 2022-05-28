@@ -22,7 +22,13 @@ export const NewItemForm = ({ onAdd }: NewItemFormProps) => {
         value={text}
         onChange={(e) => setText(e.target.value)}
       />
-      <NewItemButton type="submit" onClick={() => onAdd(text)}>
+      <NewItemButton
+        type="submit"
+        onClick={(e) => {
+          e.preventDefault();
+          onAdd(text);
+        }}
+      >
         Create
       </NewItemButton>
     </NewItemFormContainer>
