@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const AppContainer = styled.div`
   display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
   align-items: flex-start;
   background-color: #3179ba;
@@ -9,6 +10,14 @@ export const AppContainer = styled.div`
   width: 100%;
   padding: 20px;
   overflow-y: auto;
+
+  @media (min-width: 1024px) {
+    flex-wrap: nowrap;
+  }
+
+  @media (max-width: 768px) {
+    justify-content: center;
+  }
 `;
 interface DragPreviewContainerProps {
   isHidden?: boolean;
@@ -28,6 +37,14 @@ export const ColumnContainer = styled(DragPreviewContainer)`
   border-radius: 3px;
   padding: 8px 8px;
   flex-grow: 0;
+
+  @media (max-width: 768px) {
+    width: 350px;
+  }
+
+  @media (max-width: 544px) {
+    text-align: center;
+  }
 `;
 
 export const ColumnTitle = styled.div`
