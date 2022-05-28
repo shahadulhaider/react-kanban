@@ -1,13 +1,18 @@
+import { Column } from "components/Columnm";
+import CustomDragLayer from "components/CustomDragLayer";
 import { useAppstate } from "hooks/useAppState";
-import React from "react";
+import { AppContainer } from "styles";
 
 const App = (): JSX.Element => {
-  const { state, dispatch } = useAppstate();
+  const { state } = useAppstate();
 
   return (
-    <div>
-      <h1>Kanban</h1>
-    </div>
+    <AppContainer>
+      <CustomDragLayer />
+      {state.lists.map((list, i) => (
+        <Column key={list.id} id={list.id} text={list.text} index={i} />
+      ))}
+    </AppContainer>
   );
 };
 
